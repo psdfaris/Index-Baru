@@ -53,7 +53,7 @@
 	<form>
 		<div class="form-group">
 			<label for="nama">Nama Anda</label>
-			<input type="text" class="form-control">
+			<input type="text" class="form-control" id="nama">
 		</div>
 		<div class="form-group">
 			<label for="alamat">Alamat Anda</label>
@@ -63,10 +63,23 @@
 			<label for="Tanggal">Tanggal Lahir</label>
 			<input type="date" name="tanggal">
 		</div>
-		<br>
+	<br>
 	<center>
-	<button type="submit" class="btn btn-default">Save</button>
+	<button type="submit" value="Save" onclick="cekNama(this.form)">Save</button>
 	</form>
 	</div>
+	<script type="text/javascript">
+		function cekNama(form) {
+		if (form.elements[0].value == "") {
+			alert("Nama Harus Dimasukkan Terlebih Dahulu");
+			form.nama.focus();
+			form.nama.select();
+			return(false);
+		}
+		alert("Selamat Datang, " +
+				form.elements[0].value);
+		return(true);
+	}
+	</script>
 	</body>
 </html>
